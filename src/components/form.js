@@ -2,6 +2,7 @@ import React, { useRef, useContext } from "react";
 import Card from "./UI/cart";
 import MainContext from "../context";
 import classes from "./form.module.css";
+import { Link } from "react-router-dom";
 
 const Form = () => {
   const Ctx = useContext(MainContext);
@@ -41,9 +42,11 @@ const Form = () => {
           <input type="text" ref={enteredDescRef} />
         </div>
         <div className={classes.btnDiv}>
-          <button className={classes.btn} type="submit">
-            Add Item
-          </button>
+          <Link to="/simpson">
+            <button className={classes.btn} type="submit">
+              Add Item
+            </button>
+          </Link>
         </div>
       </form>
     </Card>

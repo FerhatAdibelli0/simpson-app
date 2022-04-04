@@ -5,7 +5,7 @@ import classes from "./list.module.css";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
-import { FaPlusCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AllList = () => {
   const Data = useContext(MainContext).Data;
@@ -28,7 +28,9 @@ const AllList = () => {
                 <span className={classes.image}>
                   <img src={item.avatar} alt="img" />
                 </span>
-                <span>{item.name}</span>
+                <Link to={`/simpson/${item.id}`}>
+                  <span>{item.name}</span>
+                </Link>
                 <div className={classes.icons}>
                   <span>
                     <FaArrowCircleUp />
@@ -45,9 +47,11 @@ const AllList = () => {
           })}
         </ol>
         <div className={classes.plus}>
-          <button>
-            <FaPlusCircle />
-          </button>
+          <Link to="/add-simpson">
+            <button>
+              Add
+            </button>
+          </Link>
         </div>
       </Fragment>
     );

@@ -1,0 +1,14 @@
+.image {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+.image img {
+  width: 100%;
+}
+
+h3,
+h4 {
+  text-align: center;
+}
