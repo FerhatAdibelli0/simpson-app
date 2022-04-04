@@ -1,0 +1,29 @@
+.btn {
+  background-color: rgb(57, 57, 90);
+  border-radius: 5px;
+  color: white;
+  padding: 3px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+   margin: auto;
+   width: 90%;
+}
+
+.form label{
+    display: inline-block;
+    min-width: 100px;
+}
+
+.form div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
