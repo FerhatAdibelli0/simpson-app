@@ -14,19 +14,24 @@ export const MainContextProvider = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://5fc9346b2af77700165ae514.mockapi.io/simpsons")
-      .then((result) => {
-        return result.json();
-      })
-      .then((result) => {
-        return setData(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const dataFromLS = JSON.parse(localStorage.getItem("simpson"));
+    if (dataFromLS) {
+      setData(dataFromLS);
+    } else {
+      fetch("https://5fc9346b2af77700165ae514.mockapi.io/simpsons")
+        .then((result) => {
+          return result.json();
+        })
+        .then((result) => {
+          localStorage.setItem("simpson", JSON.stringify(result));
+          return setData(result);
+        })
+        .then(() => {})
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
-
-  localStorage.setItem("fetchedData", data);
 
   const addHandler = (enteredData) => {
     console.log(enteredData);
@@ -42,7 +47,12 @@ export const MainContextProvider = (props) => {
   };
 
   const deleteHandler = (id) => {
-    console.log(id);
+    const filteredData = data.filter((item) => item.id !== id);
+    setData(filteredData);
+    const localData = JSON.parse(localStorage.getItem("simpson"));
+    const filteredLocalData = localData.filter((item) => item.id !== id);
+    console.log(filteredLocalData);
+    localStorage.setItem("simpson", JSON.stringify(filteredLocalData));
   };
 
   return (
@@ -53,10 +63,3 @@ export const MainContextProvider = (props) => {
     </MainContext.Provider>
   );
 };
-
-//   useEffect(() => {
-//     const setedItemInLocalStorage = localStorage.getItem("enteredData");
-//     if (setedItemInLocalStorage === "1") {
-
-//     }
-//   }, []);

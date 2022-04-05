@@ -12,7 +12,6 @@ const AllList = () => {
   const Ctx = useContext(MainContext);
 
   const deleteSimHandler = (event) => {
-    console.log(event.target.id);
     Ctx.deleteHandler(event.target.id);
   };
 
@@ -38,8 +37,8 @@ const AllList = () => {
                   <span>
                     <FaArrowCircleDown />
                   </span>
-                  <span className={classes.delete} onClick={deleteSimHandler}>
-                    <FaTrashAlt />
+                  <span className={classes.delete} id={item.id} onClick={deleteSimHandler}>
+                    X
                   </span>
                 </div>
               </li>
