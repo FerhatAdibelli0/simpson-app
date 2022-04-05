@@ -32,18 +32,35 @@ export const MainContextProvider = (props) => {
         });
     }
   }, []);
-
   const addHandler = (enteredData) => {
-    console.log(enteredData);
+    const newList = [...data];
+    newList.push(enteredData);
+    setData(newList);
+    const localData = JSON.parse(localStorage.getItem("simpson"));
+    const addedLocalData = localData.concat(enteredData);
+    localStorage.setItem("simpson", JSON.stringify(addedLocalData));
   };
 
-  const upHandler = (id) => {
-    console.log(id);
-    // localStorage.removeItem("enteredData");
+  const upHandler = (key) => {
+    if (key === 0) return;
+    const items = [...data];
+    const index = key - 1;
+    const itemAbove = items[index];
+    items[key - 1] = items[key];
+    items[key] = itemAbove;
+    setData(items);
+    localStorage.setItem("simpson", JSON.stringify(items));
   };
 
-  const downHandler = (id) => {
-    console.log(id);
+  const downHandler = (key) => {
+    const items = [...data];
+    if (key === items.length - 1) return;
+    const index = key + 1;
+    const itemBelow = items[index];
+    items[key + 1] = items[key];
+    items[key] = itemBelow;
+    setData(items);
+    localStorage.setItem("simpson", JSON.stringify(items));
   };
 
   const deleteHandler = (id) => {
@@ -51,7 +68,6 @@ export const MainContextProvider = (props) => {
     setData(filteredData);
     const localData = JSON.parse(localStorage.getItem("simpson"));
     const filteredLocalData = localData.filter((item) => item.id !== id);
-    console.log(filteredLocalData);
     localStorage.setItem("simpson", JSON.stringify(filteredLocalData));
   };
 

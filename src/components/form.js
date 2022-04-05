@@ -2,7 +2,7 @@ import React, { useRef, useContext } from "react";
 import Card from "./UI/cart";
 import MainContext from "../context";
 import classes from "./form.module.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const Ctx = useContext(MainContext);
@@ -10,17 +10,17 @@ const Form = () => {
   const enteredImgRef = useRef();
   const enteredJobRef = useRef();
   const enteredDescRef = useRef();
+  const navigate = useNavigate();
 
-  const submitHandler = () => {
+  const submitHandler = (event) => {
+    event.preventDefault();
     const name = enteredNameRef.current.value;
     const job = enteredJobRef.current.value;
     const avatar = enteredImgRef.current.value;
     const description = enteredDescRef.current.value;
-
-    if (name && job && avatar && description) {
-      Ctx.addHandler({ name, job, avatar, description });
-    }
-    return;
+    const id = Math.random().toString()
+    Ctx.addHandler({ name, job, avatar, description, id });
+    navigate("/simpson",{replace:true});
   };
   return (
     <Card>
@@ -42,11 +42,9 @@ const Form = () => {
           <input type="text" ref={enteredDescRef} />
         </div>
         <div className={classes.btnDiv}>
-          <Link to="/simpson">
-            <button className={classes.btn} type="submit">
-              Add Item
-            </button>
-          </Link>
+          <button className={classes.btn} type="submit">
+            Add Member
+          </button>
         </div>
       </form>
     </Card>

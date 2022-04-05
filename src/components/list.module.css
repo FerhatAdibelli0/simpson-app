@@ -36,9 +36,15 @@ h4 {
 .plus button {
   color: white;
   background-color: rgb(64, 64, 216);
-  border-radius: 50%;
+  border-radius: 40%;
+  -webkit-border-radius: 40%;
+  -moz-border-radius: 40%;
+  -ms-border-radius: 40%;
+  -o-border-radius: 40%;
 }
 
-.delete {
+.delete,.btn {
   cursor: pointer;
 }
+
+

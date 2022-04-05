@@ -1,6 +1,6 @@
 .image {
-  width: 90%;
-  height: 90%;
+  width: 100px;
+  height: 250px;
   margin: auto;
 }
 
@@ -11,4 +11,9 @@
 h3,
 h4 {
   text-align: center;
+}
+
+.image button {
+  background-color: rgb(70, 70, 214);
+  color: white;
 }
