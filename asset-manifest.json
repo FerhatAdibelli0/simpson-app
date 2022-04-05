@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/simpson-app/static/css/main.35de57c2.css",
+    "main.js": "/simpson-app/static/js/main.04f04e34.js",
+    "index.html": "/simpson-app/index.html",
+    "main.35de57c2.css.map": "/simpson-app/static/css/main.35de57c2.css.map",
+    "main.04f04e34.js.map": "/simpson-app/static/js/main.04f04e34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35de57c2.css",
+    "static/js/main.04f04e34.js"
+  ]
+}
