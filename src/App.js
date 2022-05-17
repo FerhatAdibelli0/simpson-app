@@ -7,14 +7,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div>
-      <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/simpson" />} />
-          <Route path="/simpson" element={<Main />} />
-          <Route path="/simpson/:simpsonId" element={<Detailpage />} />
-          <Route path="/add-simpson" element={<Formpage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/simpson-app" element={<Navigate to="/simpson" />} />
+        <Route path="/simpson" element={<Main />} />
+        <Route path="/simpson/:simpsonId" element={<Detailpage />} />
+        <Route path="/add-simpson" element={<Formpage />} />
+      </Routes>
     </div>
   );
 }
