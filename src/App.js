@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/simpson-app" element={<Navigate to="/simpson" />} />
+        <Route path="/" element={<Navigate to="/simpson" />} />
         <Route path="/simpson" element={<Main />} />
         <Route path="/simpson/:simpsonId" element={<Detailpage />} />
         <Route path="/add-simpson" element={<Formpage />} />
